@@ -1,9 +1,19 @@
-#include <iostream>
-using namespace std;
+#define CATCH_CONFIG_MAIN
+#include "catch.hpp"
 
-int main()
+int sum1(int num)
 {
-    cout<<"xx"<<endl;
+    int sum = 0;
+    for(; num; --num)
+        sum += num;
+    return sum;
+}
+int sum2(int num)
+{
+    return num*(1+num)/2;
+}
 
-    return 0;
+
+TEST_CASE() {
+    REQUIRE(sum1(2) == sum2(2));
 }
